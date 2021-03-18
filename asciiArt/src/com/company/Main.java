@@ -10,7 +10,19 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) throws IOException {
+
         String symbols = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft()1{}[]?-_+~i!lI;:,^";
+
+        for(int i = 0; i < args.length; i++){
+            if(args[i].equals("-1")){
+                symbols = "987654321";
+            }else if(args[i].equals("-d")){
+                symbols = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft()1{}[]?-_+~i!lI;:,^";
+            }else if(args[i].equals("-a")){
+                symbols = "abcdefgjklmnopqrstuvwxyz";
+            }
+        }
+
         File file = new File("text.txt");
         file.createNewFile();
         BufferedImage image = ImageIO.read(new File(args[0]));
